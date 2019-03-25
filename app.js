@@ -56,12 +56,21 @@ app.post('/signup', (req, res) => {
 	request(options, (err, response, body) => {
 		if(err) {
 			res.redirect('/fail.html');
+			setTimeout(() => {
+				res.redirect('/');
+			}, 3000);
 		} else {
 			// check for status code/response
 			if(response.statusCode === 200) {
 				res.redirect('/success.html')
+				setTimeout(() => {
+					res.redirect('/');
+				}, 3000);
 			} else {
 				res.redirect('/fail.html');
+				setTimeout(() => {
+					res.redirect('/');
+				}, 3000);
 			}
 		}
 	})
